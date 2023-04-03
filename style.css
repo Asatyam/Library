@@ -82,20 +82,26 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #bbf7d0 ;
     box-shadow: 5px 5px 5px 4px #a3a3a3 ;
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    border-radius: 12px;
     
 }
 .details{
-    font-size:1.3rem;
-    margin-right: 10px;
+    font-size:1.2rem;
+
+}
+.card>p:first-of-type{
+    font-size:1.8rem;
 }
 
 .card>p{
-    font-size:1.7rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size:1.2rem;
     font-family: "Righteous","Roboto","Helvetica",sans-serif;    
 }
-.deleteBtn{
+.deleteBtn,.readBtn{
     padding:10px 25px;
     border-radius: 8px;
     box-shadow: 2px 2px 2px 2px #a1a1aa ;
