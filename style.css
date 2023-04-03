@@ -16,14 +16,44 @@ body{
     width: 100vw;
     background-color: antiquewhite;
     display: grid;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 8fr;
 }
 
+/*=========================================================For header===================================================*/
 .header{
     height: 100%;
     background-color: peachpuff;
     grid-area: 1/1/2/2;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding:20px;
 }
+
+.heading>h1{
+    font-size: 3rem;
+}
+
+.addBook>button{
+    padding:15px 24px;
+    font-size:1.3rem;
+    border-radius:20px;
+    background-color:#06b6d4 ;
+    border:none;
+    box-shadow: 5px 5px 1px 1px #9ca3af;
+    transition: 0.2s;
+}
+
+.addBook>button:hover{
+    background-color: #0369a1;
+    color: #fae8ff;
+}
+
+/*======================================================================================================================*/
+
 .content{
     background-color: darkblue;
     grid-area: 2/1/3/2;
