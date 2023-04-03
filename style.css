@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 :root{
-    --grid-size: minmax(250px, 0.3fr);
+    --grid-size: minmax(300px, 0.3fr);
 }
 html{
     height: 100%;
@@ -34,6 +34,8 @@ body{
     align-items: center;
     box-sizing: border-box;
     padding:20px 200px;
+    position: relative;
+    box-shadow: 0px 2px 5px 4px #a3a3a3;
 }
 
 .heading>h1{
@@ -65,15 +67,40 @@ body{
 }
 .cards{
     height: 100%;
-    border:2px solid black;
     padding:20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     grid-template-rows: var(--grid-size);
     grid-auto-rows:var(--grid-size);
     gap:40px;
 
 }
 .card{
-    border:2px solid blue;
+ 
+    padding:20px 20px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bbf7d0 ;
+    box-shadow: 5px 5px 5px 4px #a3a3a3 ;
+    
+}
+.details{
+    font-size:1.3rem;
+    margin-right: 10px;
+}
+
+.card>p{
+    font-size:1.7rem;
+    font-family: "Righteous","Roboto","Helvetica",sans-serif;    
+}
+.deleteBtn{
+    padding:10px 25px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px #a1a1aa ;
+    align-self: center;
+    margin-top:20px;
+    background-color:#f43f5e ;
+    color:#ecfeff;
+    font-size: 1.2rem;
 }
