@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 :root{
-    --grid-size: minmax(300px, 0.3fr);
+    --grid-size: minmax(350px, 0.3fr);
 }
 html{
     height: 100%;
@@ -25,7 +25,7 @@ body{
 /*=========================================================For header===================================================*/
 .header{
     height: 100%;
-    background-color: peachpuff;
+    background-color: #312e81;
     grid-area: 1/1/2/2;
 
 
@@ -40,15 +40,16 @@ body{
 
 .heading>h1{
     font-size: 3rem;
+    color:white;
 }
 
 .addBook>button{
     padding:15px 24px;
     font-size:1.3rem;
     border-radius:20px;
-    background-color:#06b6d4 ;
+    background-color:#f8fafc ;
     border:none;
-    box-shadow: 5px 5px 1px 1px #9ca3af;
+    box-shadow: 4px 4px 2px 2px #71717a;
     transition: 0.2s;
 }
 
@@ -69,7 +70,7 @@ body{
     height: 100%;
     padding:20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
     grid-template-rows: var(--grid-size);
     grid-auto-rows:var(--grid-size);
     gap:40px;
