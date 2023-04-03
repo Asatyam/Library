@@ -15,6 +15,7 @@ body{
     min-height: 100%;
 }
 .main{
+    position: relative;
     min-height: 100vh;
     width: 100vw;
     background-color: antiquewhite;
@@ -118,3 +119,42 @@ body{
 
 /*Form-container*/
 
+.form-container{
+
+position: fixed;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -100px;
+    background-color: white;
+   display: none;
+
+}
+form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.form-input{
+    display: flex;
+    font-size:20px;
+    align-items: center;
+    gap:10px;
+}
+input[type="checkbox"]{
+    height:25px;
+    width: 25px;
+    align-self: center;
+}
+.submitBtn{
+    padding:8px 16px;
+    justify-content: center;
+    align-self: center;
+    background-color: #0369a1;
+    color:white;
+    border:none;
+    border-radius:6px;
+}

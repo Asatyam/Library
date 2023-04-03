@@ -1,4 +1,6 @@
 const books = [];
+const main = document.querySelector('.main');
+const formContainer = document.querySelector('.form-container');
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -22,7 +24,7 @@ function createBook(currBook) {
   const readBtn = document.createElement('button');
   namePara.textContent = currBook.name;
   authorPara.textContent = `By ${currBook.author}`;
-  pagesPara.textContent = `By ${currBook.pages}`;
+  pagesPara.textContent = `${currBook.pages} Pages`;
   readBtn.textContent = currBook.read ? 'Read' : 'Not Read';
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
@@ -43,5 +45,17 @@ function displayBooks() {
   }
 }
 
+function eventListeners() {
+  const addBookBtn = document.querySelector('.addBook>button');
+
+  addBookBtn.addEventListener('click', (e) => {
+    main.style['z-index'] = -1;
+    formContainer.style['z-index'] = '1';
+    formContainer.style.display = 'flex';
+    formContainer.style['justify-content'] = 'center';
+  });
+}
+
 displayBooks();
 createBook(book3);
+eventListeners();
