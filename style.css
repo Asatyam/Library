@@ -3,8 +3,11 @@
     margin: 0;
     padding: 0;
     font-family: "Roboto",Helvetica,Verdana,sans-serif;
+    box-sizing: border-box;
 }
-
+:root{
+    --grid-size: minmax(250px, 0.3fr);
+}
 html{
     height: 100%;
 }
@@ -12,11 +15,11 @@ body{
     min-height: 100%;
 }
 .main{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: antiquewhite;
     display: grid;
-    grid-template-rows: 1fr 8fr;
+    grid-template-rows: 100px auto;
 }
 
 /*=========================================================For header===================================================*/
@@ -30,7 +33,7 @@ body{
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding:20px;
+    padding:20px 200px;
 }
 
 .heading>h1{
@@ -54,7 +57,23 @@ body{
 
 /*======================================================================================================================*/
 
+/*==================================================================Content=============================================*/
 .content{
-    background-color: darkblue;
+    background-color:#ecfdf5 ;
     grid-area: 2/1/3/2;
+    padding:40px 200px;
+}
+.cards{
+    height: 100%;
+    border:2px solid black;
+    padding:20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-rows: var(--grid-size);
+    grid-auto-rows:var(--grid-size);
+    gap:40px;
+
+}
+.card{
+    border:2px solid blue;
 }
