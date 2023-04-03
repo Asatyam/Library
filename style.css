@@ -70,7 +70,7 @@ body{
     height: 100%;
     padding:20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
     grid-template-rows: var(--grid-size);
     grid-auto-rows:var(--grid-size);
     gap:40px;
@@ -93,13 +93,13 @@ body{
 }
 .card>p:first-of-type{
     font-size:1.8rem;
+    font-weight: 899;
 }
 
 .card>p{
     text-align: center;
     margin-bottom: 20px;
     font-size:1.2rem;
-    font-family: "Righteous","Roboto","Helvetica",sans-serif;    
 }
 .deleteBtn,.readBtn{
     padding:10px 25px;

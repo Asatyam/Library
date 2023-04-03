@@ -11,6 +11,10 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "no-console":"off"
+        "no-console":"off",
+        "indent":"off",
+        "eol-last":"off",
+        "no-plusplus":"off"
+        
     }
 }
