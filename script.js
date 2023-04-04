@@ -64,8 +64,8 @@ function eventListeners() {
   const addBookBtn = document.querySelector('.addBook>button');
   const closeBtn = document.querySelector('.closeBtn');
   const submitBtn = document.querySelector('.submitBtn');
-  const readBtn = document.querySelector('.readBtn');
-  const deleteBtn = document.querySelector('.deleteBtn');
+  const readBtns = document.querySelectorAll('.readBtn');
+  const deleteBtns = document.querySelectorAll('.deleteBtn');
 
   addBookBtn.addEventListener('click', () => {
     main.classList.add('main-inactive');
@@ -90,9 +90,18 @@ function eventListeners() {
 
   submitBtn.addEventListener('click', addBooksToLibrary);
 
-  readBtn.addEventListener('click',(e)=>{
-    
-  })
+  readBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.target.classList.toggle('notRead');
+      if (e.target.textContent === 'Read') {
+        e.target.textContent = 'Not Read';
+        console.log(e.target);
+      } else {
+        e.target.textContent = 'Read';
+        console.log(e.target);
+      }
+    });
+  });
 }
 
 displayBooks();

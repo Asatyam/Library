@@ -113,7 +113,9 @@ body{
     font-size: 1.2rem;
     transition: 0.1s;
 }
-
+.readBtn{
+    background-color: darkgreen;
+}
 .deleteBtn:active,.readBtn:active{
     background-color: lightcoral;
 }
@@ -195,5 +197,5 @@ input[type="checkbox"]{
     filter:blur(20px);
 }
 .notRead{
-    background-color: lightgreen;
+    background-color: red;
 }
