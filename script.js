@@ -12,7 +12,7 @@ function Book(name, author, pages, read) {
 function deleteBook(e) {
   const bookToDelete = e.target.parentElement.firstChild.textContent;
   const itemToRemoveIndex = books.findIndex(
-    (item) => item.name === bookToDelete,
+    (item) => item.name === bookToDelete
   );
 
   // proceed to remove an item only if it exists.
@@ -50,6 +50,9 @@ function createBookCard(currBook) {
   readBtn.addEventListener('click', toggleRead);
   deleteBtn.addEventListener('click', deleteBook);
   readBtn.setAttribute('class', 'readBtn');
+  if (readBtn.textContent === 'Not Read') {
+    readBtn.classList.add('notRead');
+  }
   card.appendChild(namePara);
   card.appendChild(authorPara);
   card.appendChild(pagesPara);
@@ -91,7 +94,6 @@ function addBooksToLibrary(e) {
 function eventListeners() {
   const addBookBtn = document.querySelector('.addBook>button');
   const closeBtn = document.querySelector('.closeBtn');
-  const submitBtn = document.querySelector('.submitBtn');
   const readBtns = document.querySelectorAll('.readBtn');
   const deleteBtns = document.querySelectorAll('.deleteBtn');
 
