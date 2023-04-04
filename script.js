@@ -50,9 +50,8 @@ function eventListeners() {
 
   addBookBtn.addEventListener('click', (e) => {
     main.style['z-index'] = -1;
-    formContainer.style['z-index'] = '1';
-    formContainer.style.display = 'flex';
-    formContainer.style['justify-content'] = 'center';
+    formContainer.classList.toggle('form-active');
+    main.style.filter = 'blur(20px)';
   });
 }
 
