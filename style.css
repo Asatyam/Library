@@ -84,9 +84,9 @@ body{
     flex-direction: column;
     justify-content: center;
     box-shadow: 5px 5px 5px 4px #a3a3a3 ;
-    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     border-radius: 12px;
-    
+    color: white;
 }
 .details{
     font-size:1.2rem;
