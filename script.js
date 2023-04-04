@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 const books = [];
 const main = document.querySelector('.main');
 const formContainer = document.querySelector('.form-container');
@@ -14,7 +15,7 @@ const book2 = new Book('Pride and Prejudice', 'Jane Austen', 532, 0);
 books.push(book1);
 books.push(book2);
 
-function createBook(currBook) {
+function createBookCard(currBook) {
   const cards = document.querySelector('.cards');
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
@@ -41,14 +42,31 @@ function createBook(currBook) {
 const book3 = new Book('Wuthering Heights', 'Emily Bronte', 400, 1);
 function displayBooks() {
   for (let i = 0; i < books.length; i++) {
-    createBook(books[i]);
+    createBookCard(books[i]);
   }
+}
+function addBooksToLibrary(e) {
+  e.preventDefault();
+  const bookName = document.querySelector('#name').value;
+  const authorName = document.querySelector('#author').value;
+  const pages = document.querySelector('#pages').value;
+  const read = document.querySelector('#read').checked;
+  const book = new Book(bookName, authorName, pages, read);
+  books.push(book);
+  const form = document.querySelector('form');
+  form.reset();
+  main.classList.remove('main-inactive');
+  formContainer.classList.remove('form-active');
+  createBookCard(book);
 }
 
 function eventListeners() {
   const addBookBtn = document.querySelector('.addBook>button');
   const closeBtn = document.querySelector('.closeBtn');
   const submitBtn = document.querySelector('.submitBtn');
+  const readBtn = document.querySelector('.readBtn');
+  const deleteBtn = document.querySelector('.deleteBtn');
+
   addBookBtn.addEventListener('click', () => {
     main.classList.add('main-inactive');
     formContainer.classList.add('form-active');
@@ -69,10 +87,14 @@ function eventListeners() {
     formContainer.classList.remove('form-active');
     main.classList.remove('main-inactive');
   });
+
+  submitBtn.addEventListener('click', addBooksToLibrary);
+
+  readBtn.addEventListener('click',(e)=>{
+    
+  })
 }
 
-
-
 displayBooks();
-createBook(book3);
+createBookCard(book3);
 eventListeners();
