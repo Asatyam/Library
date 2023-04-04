@@ -9,12 +9,29 @@ function Book(name, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-const book1 = new Book('1984', 'George Orwell', 385, 1);
-const book2 = new Book('Pride and Prejudice', 'Jane Austen', 532, 0);
+function deleteBook(e) {
+  const bookToDelete = e.target.parentElement.firstChild.textContent;
+  const itemToRemoveIndex = books.findIndex(
+    (item) => item.name === bookToDelete,
+  );
 
-books.push(book1);
-books.push(book2);
-
+  // proceed to remove an item only if it exists.
+  if (itemToRemoveIndex !== -1) {
+    books.splice(itemToRemoveIndex, 1);
+  }
+  e.target.parentNode.remove();
+  console.log(books);
+}
+function toggleRead(e) {
+  e.target.classList.toggle('notRead');
+  if (e.target.textContent === 'Read') {
+    e.target.textContent = 'Not Read';
+    console.log(e.target);
+  } else {
+    e.target.textContent = 'Read';
+    console.log(e.target);
+  }
+}
 function createBookCard(currBook) {
   const cards = document.querySelector('.cards');
   const card = document.createElement('div');
@@ -30,6 +47,8 @@ function createBookCard(currBook) {
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.setAttribute('class', 'deleteBtn');
+  readBtn.addEventListener('click', toggleRead);
+  deleteBtn.addEventListener('click', deleteBook);
   readBtn.setAttribute('class', 'readBtn');
   card.appendChild(namePara);
   card.appendChild(authorPara);
@@ -39,12 +58,21 @@ function createBookCard(currBook) {
   cards.append(card);
 }
 
-const book3 = new Book('Wuthering Heights', 'Emily Bronte', 400, 1);
+function hideForm() {
+  main.classList.remove('main-inactive');
+  formContainer.classList.remove('form-active');
+}
+function displayForm() {
+  main.classList.add('main-inactive');
+  formContainer.classList.add('form-active');
+}
+
 function displayBooks() {
   for (let i = 0; i < books.length; i++) {
     createBookCard(books[i]);
   }
 }
+
 function addBooksToLibrary(e) {
   e.preventDefault();
   const bookName = document.querySelector('#name').value;
@@ -55,9 +83,9 @@ function addBooksToLibrary(e) {
   books.push(book);
   const form = document.querySelector('form');
   form.reset();
-  main.classList.remove('main-inactive');
-  formContainer.classList.remove('form-active');
+  hideForm();
   createBookCard(book);
+  console.log(books);
 }
 
 function eventListeners() {
@@ -67,10 +95,7 @@ function eventListeners() {
   const readBtns = document.querySelectorAll('.readBtn');
   const deleteBtns = document.querySelectorAll('.deleteBtn');
 
-  addBookBtn.addEventListener('click', () => {
-    main.classList.add('main-inactive');
-    formContainer.classList.add('form-active');
-  });
+  addBookBtn.addEventListener('click', displayForm);
 
   document.addEventListener('click', (e) => {
     if (
@@ -78,32 +103,25 @@ function eventListeners() {
       document.querySelector('.form-active') &&
       !formContainer.contains(e.target)
     ) {
-      console.log(e.target);
-      formContainer.classList.remove('form-active');
-      main.classList.remove('main-inactive');
+      hideForm();
     }
   });
-  closeBtn.addEventListener('click', () => {
-    formContainer.classList.remove('form-active');
-    main.classList.remove('main-inactive');
-  });
+  closeBtn.addEventListener('click', hideForm);
 
   submitBtn.addEventListener('click', addBooksToLibrary);
 
   readBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.target.classList.toggle('notRead');
-      if (e.target.textContent === 'Read') {
-        e.target.textContent = 'Not Read';
-        console.log(e.target);
-      } else {
-        e.target.textContent = 'Read';
-        console.log(e.target);
-      }
-    });
+    btn.addEventListener('click', toggleRead);
+  });
+
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener('click', deleteBook);
   });
 }
 
+const book3 = new Book('Wuthering Heights', 'Emily Bronte', 400, 1);
+books.push(book3);
+console.log(books);
 displayBooks();
-createBookCard(book3);
+
 eventListeners();
