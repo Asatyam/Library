@@ -127,15 +127,18 @@ body{
 .form-container{
 
 position: fixed;
-    width: 300px;
-    height: 400px;
+font-family: "Helvetica" sans-serif;
+    width: 350px;
+    height: 450px;
     top: 50%;
     left: 50%;
     margin-top: -150px;
     margin-left: -100px;
-    background-color: white;
+    background: linear-gradient(to right, #00b09b, #96c93d);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    display: none;
-
+    border-radius:8px;
+    
 }
 
 .form-active{
@@ -148,21 +151,28 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    
 }
 .form-input{
     display: flex;
     font-size:20px;
     align-items: center;
-    gap:10px;
+    gap:15px;
+   
+}
+.form-input>*{
+    flex: 1;
 }
 input{
     width: 200px;
-    padding:0px 5px;
+    padding:2px 5px;
+    border-color: #0369a1;
+    font-size: 1.1rem;
 }
 input[type="checkbox"]{
-    height:25px;
-    width: 25px;
-    align-self: center;
+    height:20px;
+    width: 20px;
+    
 }
 .submitBtn{
     padding:8px 16px;

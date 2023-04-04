@@ -108,7 +108,8 @@ function eventListeners() {
   });
   closeBtn.addEventListener('click', hideForm);
 
-  submitBtn.addEventListener('click', addBooksToLibrary);
+  const form = document.querySelector('form');
+  form.addEventListener('submit', addBooksToLibrary);
 
   readBtns.forEach((btn) => {
     btn.addEventListener('click', toggleRead);
