@@ -190,3 +190,7 @@ input[type="checkbox"]{
     cursor:pointer;
     color: red;
 }
+.main-inactive{
+    z-index: -1;
+    filter:blur(20px);
+}

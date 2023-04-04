@@ -47,13 +47,31 @@ function displayBooks() {
 
 function eventListeners() {
   const addBookBtn = document.querySelector('.addBook>button');
+  const closeBtn = document.querySelector('.closeBtn');
+  const submitBtn = document.querySelector('.submitBtn');
+  addBookBtn.addEventListener('click', () => {
+    main.classList.add('main-inactive');
+    formContainer.classList.add('form-active');
+  });
 
-  addBookBtn.addEventListener('click', (e) => {
-    main.style['z-index'] = -1;
-    formContainer.classList.toggle('form-active');
-    main.style.filter = 'blur(20px)';
+  document.addEventListener('click', (e) => {
+    if (
+      e.target.parentElement.className !== 'addBook' &&
+      document.querySelector('.form-active') &&
+      !formContainer.contains(e.target)
+    ) {
+      console.log(e.target);
+      formContainer.classList.remove('form-active');
+      main.classList.remove('main-inactive');
+    }
+  });
+  closeBtn.addEventListener('click', () => {
+    formContainer.classList.remove('form-active');
+    main.classList.remove('main-inactive');
   });
 }
+
+
 
 displayBooks();
 createBook(book3);
